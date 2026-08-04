@@ -1,0 +1,15 @@
+/*
+Theme name : Custom theme 
+Theme URI : https://example.com
+Author : Mayank Saini
+Author URI : https://example.com
+Description : My First wordpress theme
+version : 1.0
+Licence : GPL v2 or later
+Text Domain : my-custom-theme
+*/
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
