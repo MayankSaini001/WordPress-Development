@@ -45,3 +45,10 @@ function custom_theme_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'custom_theme_scripts');
+
+function my_theme_setup()
+{
+    add_theme_support('title-tag');
+}
+
+add_action('after_setup_theme', 'my_theme_setup');
