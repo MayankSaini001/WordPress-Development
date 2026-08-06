@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name : Custom plugin
-Description : Collect the information of the students
-Author : Mayank Saini
-Version : 1.0
+Plugin Name: Custom plugin
+Description: Collect the information of the students
+Author: Mayank Saini
+Version: 1.0
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
