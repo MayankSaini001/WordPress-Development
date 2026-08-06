@@ -42,11 +42,44 @@ function cp_add_menu() {
 }
 add_action( 'admin_menu', 'cp_add_menu' );
 
-function cp_render_page(){
+function cp_render_page() {
+
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'cp_students';
+
+    if ( isset( $_POST['cp_submit'] ) ) {
+
+        $name  = sanitize_text_field( $_POST['cp_name'] );
+        $email = sanitize_email( $_POST['cp_email'] );
+
+        $wpdb->insert(
+            $table_name,
+            array(
+                'name'  => $name,
+                'email' => $email,
+            ),
+            array( '%s', '%s' ) // dono fields string hain
+        );
+
+        echo '<div class="notice notice-success"><p>Student added successfully!</p></div>';
+    }
+
     ?>
     <div class="wrap">
         <h1>Students</h1>
-        <p>form</p>
+
+        <h2>Add New Student</h2>
+        <form method="POST">
+            <p>
+                <label>Name</label><br>
+                <input type="text" name="cp_name" required>
+            </p>
+            <p>
+                <label>Email</label><br>
+                <input type="email" name="cp_email" required>
+            </p>
+            <button type="submit" name="cp_submit" class="button button-primary">Add Student</button>
+        </form>
     </div>
     <?php
 }
