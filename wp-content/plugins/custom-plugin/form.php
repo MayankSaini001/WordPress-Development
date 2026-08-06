@@ -27,3 +27,26 @@ function cp_create_table() {
     dbDelta( $sql );
 }
 register_activation_hook( __FILE__, 'cp_create_table' );
+
+
+function cp_add_menu() {
+    add_menu_page(
+        'Students',        // Page title (browser tab pe dikhega)
+        'Students',         // Menu title (sidebar me dikhega)
+        'manage_options',   // Capability - kaun access kar sakta hai
+        'cp-students',       // Menu slug - unique ID is page ka
+        'cp_render_page',   // Callback function - jo page ka content banayega
+        'dashicons-groups', // Icon
+        20                  // Position (sidebar me kahan dikhega)
+    );
+}
+add_action( 'admin_menu', 'cp_add_menu' );
+
+function cp_render_page(){
+    ?>
+    <div class="wrap">
+        <h1>Students</h1>
+        <p>form</p>
+    </div>
+    <?php
+}
