@@ -64,6 +64,7 @@ function cp_render_page() {
         echo '<div class="notice notice-success"><p>Student added successfully!</p></div>';
     }
 
+    
     ?>
     <div class="wrap">
         <h1>Students</h1>
