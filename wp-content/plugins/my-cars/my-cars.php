@@ -75,3 +75,35 @@ function register_car_taxonomy() {
 }
 
 add_action('init', 'register_car_taxonomy');
+
+
+function register_books_post_type() {
+
+    $labels = array(
+        'name'          => 'Books',
+        'singular_name' => 'Book',
+        'menu_name'     => 'Books',
+        'add_new_item'  => 'Add New Book',
+        'edit_item'     => 'Edit Book',
+        'all_items'     => 'All Books',
+    );
+
+    $args = array(
+        'labels'       => $labels,
+        'public'       => true,
+        'has_archive'  => true,
+        'show_in_rest' => true,
+        'supports'     => array(
+            'title',
+            'editor',
+            'thumbnail',
+        ),
+        'rewrite'      => array(
+            'slug' => 'books',
+        ),
+    );
+
+    register_post_type('book', $args);
+}
+
+add_action('init', 'register_books_post_type');
