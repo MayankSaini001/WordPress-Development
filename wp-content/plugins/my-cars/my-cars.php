@@ -40,3 +40,38 @@ function register_cars_post_type() {
 }
 
 add_action('init', 'register_cars_post_type');
+
+function register_car_taxonomy() {
+
+    $labels = array(
+        'name'              => 'Car Categories',
+        'singular_name'     => 'Car Category',
+        'search_items'      => 'Search Car Categories',
+        'all_items'         => 'All Car Categories',
+        'parent_item'       => 'Parent Car Category',
+        'parent_item_colon' => 'Parent Car Category:',
+        'edit_item'         => 'Edit Car Category',
+        'update_item'       => 'Update Car Category',
+        'add_new_item'      => 'Add New Car Category',
+        'new_item_name'     => 'New Car Category Name',
+        'menu_name'         => 'Car Categories',
+    );
+
+    $args = array(
+        'labels'            => $labels,
+        'public'            => true,
+        'hierarchical'      => true,
+        'show_in_rest'      => true,
+        'rewrite'           => array(
+            'slug' => 'car-category',
+        ),
+    );
+
+    register_taxonomy(
+        'car_category',
+        array('car'),
+        $args
+    );
+}
+
+add_action('init', 'register_car_taxonomy');
